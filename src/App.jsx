@@ -1461,6 +1461,20 @@ export default function App() {
             <p className="text-sm text-white/40 mt-8">
               Ou appuyez sur <kbd className="px-2 py-1 bg-white/10 rounded">ESPACE</kbd> pour démarrer
             </p>
+            
+            {/* Team members */}
+            <div className="mt-16 pt-8 border-t border-white/10">
+              <p className="text-xs text-white/30 mb-3 uppercase tracking-widest">Réalisé par</p>
+              <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-white/50">
+                <span className="hover:text-cyan-300 transition-colors">Mael Jerome</span>
+                <span className="text-white/20">•</span>
+                <span className="hover:text-cyan-300 transition-colors">Rami Nebili</span>
+                <span className="text-white/20">•</span>
+                <span className="hover:text-cyan-300 transition-colors">Noé Chauvin</span>
+                <span className="text-white/20">•</span>
+                <span className="hover:text-cyan-300 transition-colors">Louis Nourry</span>
+              </div>
+            </div>
           </div>
         </div>
       )}
