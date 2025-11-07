@@ -523,6 +523,7 @@ function QuizGame({ onComplete, accent }) {
 function FuturePrediction({ quizScore, onRestart, accent }) {
   const [selectedScenarios, setSelectedScenarios] = useState([]);
   const [showRobotOpinion, setShowRobotOpinion] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
 
   const toggleScenario = (id) => {
     setSelectedScenarios(prev => 
@@ -532,6 +533,10 @@ function FuturePrediction({ quizScore, onRestart, accent }) {
 
   const handleSubmit = () => {
     setShowRobotOpinion(true);
+  };
+
+  const handleShowVideo = () => {
+    setShowVideo(true);
   };
 
   const getRobotOpinion = () => {
@@ -653,6 +658,55 @@ function FuturePrediction({ quizScore, onRestart, accent }) {
               <p className="text-white/70 text-sm">
                 Merci d'avoir exploré l'histoire de la technologie ! L'avenir de l'IA dépend de nos choix d'aujourd'hui. 🌟
               </p>
+            </div>
+
+            <div className="mt-8">
+              <button
+                onClick={handleShowVideo}
+                className="w-full px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 mb-4"
+                style={{ 
+                  backgroundColor: accent,
+                  color: '#000',
+                  boxShadow: `0 10px 30px -10px ${accent}88`
+                }}
+              >
+                🎬 Découvrir la vidéo finale
+              </button>
+
+              <button
+                onClick={onRestart}
+                className="w-full px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 border-2"
+                style={{ 
+                  borderColor: accent,
+                  color: accent,
+                }}
+              >
+                Recommencer l'exploration
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Video finale */}
+        {showVideo && (
+          <div className="text-center">
+            <div className="mb-8">
+              <h2 className="text-3xl font-bold mb-2" style={{ color: accent }}>
+                Et maintenant ? 🎬
+              </h2>
+              <p className="text-white/70">Découvrez cette vidéo pour aller plus loin</p>
+            </div>
+
+            <div className="mb-8 rounded-2xl overflow-hidden border-2 shadow-2xl" style={{ borderColor: accent }}>
+              <video 
+                controls 
+                autoPlay
+                className="w-full max-w-4xl mx-auto"
+                style={{ maxHeight: '70vh' }}
+              >
+                <source src="/elevenlab_2025.mp4" type="video/mp4" />
+                Votre navigateur ne supporte pas la lecture de vidéos.
+              </video>
             </div>
 
             <button
