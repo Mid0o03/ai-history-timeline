@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background-color: #181f29; /* plus chic que noir brut! */
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  font-size: 17px;
+  color: #edeff7;
+}
+
+/* Typo scale professionnelle */
+h1 {
+  font-size: 2.25rem;
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.22;
+  margin-top: 0.5em;
+  margin-bottom: 0.25em;
+}
+
+/* HoloClock effet scanline/glow */
+.holographic {
+  position: relative;
+  background: linear-gradient(100deg, rgba(76,250,255,0.15) 40%, transparent 100%),
+              rgba(102,239,255,0.040);
+  text-shadow: 0 0 20px #4cfaff, 0 0 80px #3b82f6, 0 1px 1px rgba(0,0,0,.04);
+}
+.holographic::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.09;
+  background: repeating-linear-gradient(
+    0deg,
+    #fff7 0px,
+    #fff7 1px,
+    transparent 1.7px,
+    transparent 3.5px
+  );
+  border-radius: inherit;
+}
+
+.backdrop-fade {
+  background: rgba(14,21,38,0.74);
+  backdrop-filter: blur(5px) brightness(0.83) saturate(0.7);
+  transition: all .5s cubic-bezier(.4,1.8,.6,.95);
+  pointer-events: none;
+  z-index:30;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: .7; }
+  50% { opacity: 0; }
+}
+.animate-blink {
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@media (max-width:700px) {
+  body {font-size:15px;}
+  h1 {font-size:1.6rem;}
+  h2 {font-size:1.08rem;}
+}
+
+/* Footer pro */
+.footer-pro {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  text-align: center;
+  font-size: 0.97rem;
+  color: #b8d0e5;
+  padding: 8px 0 5px 0;
+  opacity: 0.75;
+  letter-spacing: 0.08em;
+  z-index: 80;
+}
